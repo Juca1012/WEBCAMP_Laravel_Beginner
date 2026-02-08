@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Requests\TestPostRequest;
+use App\Http\Requests\TaskRegisterPostRequest;
+use Illuminate\Support\Facades\Auth;
+use App\Models\Task as TaskModel;
 
 class TestController extends Controller
 {
