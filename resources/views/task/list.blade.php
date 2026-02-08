@@ -35,34 +35,15 @@
             <th>タスク名
             <th>期限
             <th>重要度
+        @foreach ($list as $task)
         <tr>
-            <td>HTML formの学習
-            <td>2025/01/01
-            <td>普通
+            <td>{{ $task->name }}
+            <td>{{ $task->period }}
+            <td>{{ $task->getPriorityString() }}
             <td><a href="./detail.html">詳細閲覧</a>
             <td><a href="./edit.html">編集</a>
             <td><form action="./top.html"><button>完了</button></form>
-        <tr>
-            <td>PHPの学習
-            <td>2026/01/15
-            <td>普通
-            <td><a href="./detail.html">詳細閲覧</a>
-            <td><a href="./edit.html">編集</a>
-            <td><form action="./top.html"><button>完了</button></form>
-        <tr>
-            <td>RDBの学習
-            <td>2026/02/01
-            <td>普通
-            <td><a href="./detail.html">詳細閲覧</a>
-            <td><a href="./edit.html">編集</a>
-            <td><form action="./top.html"><button>完了</button></form>
-        <tr>
-            <td>Laravelの学習
-            <td>2026/02/15
-            <td>普通
-            <td><a href="./detail.html">詳細閲覧</a>
-            <td><a href="./edit.html">編集</a>
-            <td><form action="./top.html"><button>完了</button></form>
+        @endforeach
         </table>
         <!-- ページネーション -->
          現在 1 ページ目<br>
@@ -74,5 +55,6 @@
          <menu label="リンク">
             <a href="/logout">ログアウト</a><br>
          </menu>
+@endsection
     </body>
 </html>
