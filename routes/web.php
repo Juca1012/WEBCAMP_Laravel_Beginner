@@ -22,8 +22,11 @@ Route::get('/', [AuthController::class, 'index'])->name('front.index');
 Route::post('/login', [AuthController::class, 'login']);
 // 認可処理
 Route::middleware(['auth'])->group(function () {
-    Route::get('/task/list', [TaskController::class, 'list']);
-    Route::post('/task/register', [TaskController::class, 'register']);
+    Route::prefix('/task')->group(function () {
+        Route::get('/task/list', [TaskController::class, 'list']);
+        Route::post('/task/register', [TaskController::class, 'register']);
+        Route::get('/task/detail/{task_id}', [TaskController::class, 'datail'])->whereNumber('task_id')->name('datail');
+    });
     Route::get('/logout', [AuthController::class, 'logout']);
 });
 
