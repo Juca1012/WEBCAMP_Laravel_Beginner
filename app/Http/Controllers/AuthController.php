@@ -17,7 +17,7 @@ class AuthController extends Controller
      */
     public function index()
     {
-        return view('admin.index');
+        return view('index');
     }
 
     /**
@@ -30,7 +30,7 @@ class AuthController extends Controller
 
         // データの取得
         $datum = $request->validated();
-        var_dump($datum); exit;
+        // var_dump($datum); exit;
 
 
         // 認証に失敗した場合

@@ -8,6 +8,7 @@ use App\Http\Controllers\TestController;
 use App\Http\Controllers\Admin\AuthController as AdminAuthController;
 use App\Http\Controllers\Admin\HomeController as AdminHomeController;
 use App\Http\Controllers\Admin\UserController as AdminUserController;
+use App\Http\Controllers\CompletedTaskController;
 
 /*
 |--------------------------------------------------------------------------
@@ -55,3 +56,5 @@ Route::get('/welcome/second', [WelcomeController::class, 'second']);
 // form入力テスト用
 Route::get('/test', [TestController::class, 'index']);
 Route::post('/test/input', [TestController::class, 'input']);
+
+Route::get('/completed_tasks/list', [CompletedTaskController::class, 'list']);
