@@ -9,6 +9,7 @@ use App\Http\Controllers\Admin\AuthController as AdminAuthController;
 use App\Http\Controllers\Admin\HomeController as AdminHomeController;
 use App\Http\Controllers\Admin\UserController as AdminUserController;
 use App\Http\Controllers\CompletedTaskController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -56,5 +57,8 @@ Route::get('/welcome/second', [WelcomeController::class, 'second']);
 // form入力テスト用
 Route::get('/test', [TestController::class, 'index']);
 Route::post('/test/input', [TestController::class, 'input']);
-
+//完了タスク一覧
 Route::get('/completed_tasks/list', [CompletedTaskController::class, 'list']);
+//会員登録
+Route::get('/user/register', [UserController::class, 'index']);
+Route::post('/user/register', [UserController::class, 'register']);

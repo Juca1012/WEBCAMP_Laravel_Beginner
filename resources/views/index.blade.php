@@ -3,6 +3,11 @@
 {{-- メインコンテンツ --}}
 @section('contents')
         <h1>ログイン</h1>
+
+        @if (session('message'))
+            {{ session('message') }}
+        @endif
+
         @if ($errors->any())
             <div>
             @foreach ($errors->all() as $error)

@@ -31,7 +31,7 @@
                 @csrf
                 タスク名：<input type="text" name="name" value="{{ old('name') }}"><br>
                 期限：<input type="date" name="period" value="{{ old('period') }}"><br>
-                タスク詳細：<textarea name="detail">{{ old('datail') }}</textarea><br>
+                タスク詳細：<textarea name="detail">{{ old('detail') }}</textarea><br>
                 重要度：<label><input type="radio" name="priority" value="1">低い</label> /
                     <label><input type="radio" name="priority" value="2" checked>普通</label> /
                     <label><input type="radio" name="priority" value="3">高い</label><br>
@@ -42,18 +42,25 @@
         <a href="/task/csv/download">CSVダウンロード</a><br>
         <a href="/completed_tasks/list">完了タスク一覧</a><br>
         <table border="1">
+        <tr>
+            <th>タスク名</th>
+            <th>期限</th>
+            <th>重要度</th>
+        </tr>
         @foreach ($list as $task)
         <tr>
-            <td>{{ $task->name }}
-            <td>{{ $task->period }}
-            <td>{{ $task->getPriorityString() }}
-            <td><a href="{{ route('detail', ['task_id' => $task->id]) }}">詳細閲覧</a>
-            <td><a href="{{ route('edit', ['task_id' => $task->id]) }}">編集</a>
+            <td>{{ $task->name }}</td>
+            <td>{{ $task->period }}</td>
+            <td>{{ $task->getPriorityString() }}</td>
+            <td><a href="{{ route('detail', ['task_id' => $task->id]) }}">詳細閲覧</a></td>
+            <td><a href="{{ route('edit', ['task_id' => $task->id]) }}">編集</a></td>
             <td>
                 <form action="{{ route('complete', ['task_id' => $task->id]) }}" method="post">
                 @csrf
                 <button onclick='return confirm("このタスクを「完了」にします。よろしいですか？");' >完了</button>
             </form>
+            </td>
+        </tr>
         @endforeach
         </table>
         <!-- ページネーション -->
