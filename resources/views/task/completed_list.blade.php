@@ -11,7 +11,7 @@
         <th>タスク名</th>
         <th>期限</th>
         <th>重要度</th>
-        <th>完了日時</th>
+        <th>タスク終了日</th>
     </tr>
 
     @foreach ($completedTasks as $task)

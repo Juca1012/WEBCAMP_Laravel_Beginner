@@ -9,7 +9,9 @@ class CompletedTaskController extends Controller
 {
     public function list()
     {
-       $completedTasks = CompletedTask::orderBy('created_at', 'desc')->paginate(5);
+       $completedTasks = CompletedTask::where('user_id', auth()->id())
+            ->orderBy('created_at', 'desc')
+            ->paginate(5);
 
         return view('task.completed_list', compact('completedTasks'));
     }
